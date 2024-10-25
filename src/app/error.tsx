@@ -1,8 +1,13 @@
-"use client" // Error boundaries must be Client Components
+"use client"
 
 import { useEffect } from "react"
 
-export default function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
+interface ErrorProps {
+    error: Error
+    reset: () => void
+}
+
+export default function Error({ error, reset }: ErrorProps) {
     useEffect(() => {
         console.error(error)
     }, [error])
